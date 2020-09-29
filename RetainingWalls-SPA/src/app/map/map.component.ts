@@ -15,7 +15,8 @@ export class MapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-    this.markerService.makeCapitalMarkers(this.map);
+    //this.markerService.makeCapitalMarkers(this.map);
+    this.markerService.makeRetainingWallMarkers(this.map);
   }
 
   private initMap(): void {
