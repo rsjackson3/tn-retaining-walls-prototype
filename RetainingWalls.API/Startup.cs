@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using RetainingWalls.API.Models;
 using RetainingWalls.API.Data;
+using AutoMapper;
 
 
 namespace RetainingWalls.API
@@ -33,6 +34,8 @@ namespace RetainingWalls.API
             (Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IWallRepository, WallRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

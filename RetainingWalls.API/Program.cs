@@ -18,9 +18,9 @@ namespace RetainingWalls.API
         {
             //CreateHostBuilder(args).Build().Run();
             var host = CreateHostBuilder(args).Build();
-            using (var scope = host.Services.CreateScope())
+            using (var scope = host.Services.CreateScope()) // creates an IServiceScope
             {
-                var services = scope.ServiceProvider;
+                var services = scope.ServiceProvider; // gets IServiceProvider
                 try
                 {
                     var context = services.GetRequiredService<WallContext>();
