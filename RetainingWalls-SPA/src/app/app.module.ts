@@ -8,18 +8,22 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './_services/marker.service';
 import { NavComponent } from './nav/nav.component';
+import { WallAddComponent } from './wall-add/wall-add.component'
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [	
     AppComponent,
     MapComponent,
-      NavComponent
+    NavComponent,
+    WallAddComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LeafletModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent]

@@ -45,13 +45,13 @@ namespace RetainingWalls.API.Controllers
         {
             try 
             {
-                if (wallForAddDto == null) 
+                if (wallForAddDto == null) // didn't get anything from request body
                 {
                     //_logger.LogError("Invalid wall object sent from client request");
                     return BadRequest("Wall object is null");
                 }
 
-                if (!ModelState.IsValid)
+                if (!ModelState.IsValid) // check to see if request was bound correctly
                 {
                     //_logger.LogError("Invalid retaining wall object sent from client request.");
                     return BadRequest("Invalid retaining wall object.");
@@ -61,10 +61,12 @@ namespace RetainingWalls.API.Controllers
                 var retainingWall = _mapper.Map<RetainingWall>(wallForAddDto);
 
                 // make repo call to add user
-                await _repo.AddWall(retainingWall);
+                var addedWall = await _repo.AddWall(retainingWall);
 
-                //var createdWall = _mapper.Map<WallForAddDto>(retainingWall);
-                return Ok("Wall created");
+                // this is for returning the newly created wall ID in the database to the client
+                var addedWallToReturn = _mapper.Map<WallForAddDto>(addedWall);
+
+                return Ok(addedWallToReturn.Id);
             }
             catch (Exception ex)
             {

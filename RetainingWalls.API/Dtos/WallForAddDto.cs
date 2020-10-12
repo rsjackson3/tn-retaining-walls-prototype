@@ -4,6 +4,7 @@ namespace RetainingWalls.API.Dtos
     {
 
         // map request body to this Dto
+        public int Id {get; set;}
         public double Latitude {get; set;}
         public double Longitude {get; set;}
         public string Location {get; set;}
