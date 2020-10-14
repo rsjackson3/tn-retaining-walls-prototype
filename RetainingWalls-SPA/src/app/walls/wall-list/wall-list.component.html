@@ -1,3 +1,7 @@
-<p>
-  wall-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let wall of walls" class="col-lg-2 col-md-3 col-sm-6">
+      <app-wall-card [wall]="wall"></app-wall-card>>
+    </div>
+  </div>
+</div>

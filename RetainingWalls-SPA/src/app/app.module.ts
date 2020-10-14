@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './home/home.component';
+import { WallListComponent } from './walls/wall-list/wall-list.component';
+import { WallCardComponent } from './walls/wall-card/wall-card.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { HomeComponent } from './home/home.component';
     MapComponent,
     NavComponent,
     WallAddComponent,
-      HomeComponent
+    HomeComponent,
+    WallListComponent,
+    WallCardComponent
    ],
   imports: [
     BrowserModule,
