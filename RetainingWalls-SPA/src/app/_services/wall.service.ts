@@ -16,4 +16,6 @@ addWall(model: any) {
   return this.http.post(this.url, model);
 }
 
+
+
 }

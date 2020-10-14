@@ -8,22 +8,29 @@ import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './_services/marker.service';
 import { NavComponent } from './nav/nav.component';
-import { WallAddComponent } from './wall-add/wall-add.component'
-import { FormsModule } from '@angular/forms'
+import { WallAddComponent } from './wall-add/wall-add.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     MapComponent,
     NavComponent,
-    WallAddComponent
+    WallAddComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LeafletModule, 
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [MarkerService],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { WallService } from 'src/app/_services/wall.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class WallAddComponent implements OnInit {
   // model object will contain request body with wall data
   model: any = {};
 
-  constructor(private wallService: WallService) { }
+  constructor(private wallService: WallService, private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,10 @@ export class WallAddComponent implements OnInit {
   // call wall service and add wall to db
   addWall(){
     this.wallService.addWall(this.model).subscribe(
-      response => console.log("user registered"),
+      response => {
+        console.log("Wall Added");
+        this.toastr.success("Retaining Wall Added!");
+    },
       error => console.log(error)
     );
   }

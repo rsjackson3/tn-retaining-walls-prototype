@@ -1,5 +1,5 @@
 <div class="col-4">
-<form #wallAdd="ngForm" (ngSubmit)="addWall()">
+<form #wallAdd="ngForm" (ngSubmit)="addWall(); wallAdd.reset()">
   <h2 class="text-center text-primary">Add Wall to Database</h2>
   <hr>
 
