@@ -8,7 +8,8 @@ import { Wall } from '../_models/wall';
 })
 export class WallService {
 
-  baseUrl = "https://localhost:5001/retainingwalls/"
+  baseUrl = "https://localhost:5001/retainingwalls/";
+  currentWall: Wall;
 
 constructor(private http: HttpClient) { }
 
@@ -21,6 +22,15 @@ addWall(model: any) {
 // will return a list of all retaining walls using the Wall interface
 getWalls(): Observable<Wall[]> {
   return this.http.get<Wall[]>(this.baseUrl);
+}
+
+updateCurrentWall(wall: Wall) {
+  this.currentWall = wall;
+}
+
+// return the currently selected wall
+getCurrentWall(){
+  return this.currentWall;
 }
 
 }

@@ -22,5 +22,11 @@ namespace RetainingWalls.API.Data
             return wall;
         }
 
+        // function to retrieve a specific wall based on its id
+        public async Task<RetainingWall> GetWallByIdAsync(int id)
+        {
+            return await _context.RetainingWalls.FindAsync(id);
+        }
+
     }
 }

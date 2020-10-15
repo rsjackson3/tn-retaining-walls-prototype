@@ -7,5 +7,7 @@ namespace RetainingWalls.API.Data
     public interface IWallRepository
     {
          Task<RetainingWall> AddWall(RetainingWall retainingWall);
+
+         Task<RetainingWall> GetWallByIdAsync(int id);
     }
 }
