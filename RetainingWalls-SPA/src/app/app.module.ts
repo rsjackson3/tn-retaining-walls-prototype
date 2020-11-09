@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeComponent } from './home/home.component';
 import { WallListComponent } from './walls/wall-list/wall-list.component';
 import { WallCardComponent } from './walls/wall-card/wall-card.component';
+import { WallDetailedComponent } from './walls/wall-detailed/wall-detailed.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { WallCardComponent } from './walls/wall-card/wall-card.component';
     WallAddComponent,
     HomeComponent,
     WallListComponent,
-    WallCardComponent
+    WallCardComponent,
+    WallDetailedComponent
    ],
   imports: [
     BrowserModule,

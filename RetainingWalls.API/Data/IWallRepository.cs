@@ -9,5 +9,7 @@ namespace RetainingWalls.API.Data
          Task<RetainingWall> AddWall(RetainingWall retainingWall);
 
          Task<RetainingWall> GetWallByIdAsync(int id);
+
+         Task<bool> UpdateWall(RetainingWall wall);
     }
 }

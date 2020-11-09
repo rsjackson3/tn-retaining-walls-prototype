@@ -28,5 +28,13 @@ namespace RetainingWalls.API.Data
             return await _context.RetainingWalls.FindAsync(id);
         }
 
+        // function to update wall information for existing wall
+        public async Task<bool> UpdateWall(RetainingWall wall)
+        {
+            // make update
+            _context.RetainingWalls.Update(wall);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
     }
 }

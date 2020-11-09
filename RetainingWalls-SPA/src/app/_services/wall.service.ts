@@ -33,4 +33,9 @@ getCurrentWall(){
   return this.currentWall;
 }
 
+// send updated wall information to API for processing
+sendWallUpdate(updatedWall: Wall){
+  return this.http.put(this.baseUrl + 'update', updatedWall);
+}
+
 }

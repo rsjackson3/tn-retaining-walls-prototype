@@ -74,5 +74,24 @@ namespace RetainingWalls.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        // PUT request to update retaining wall info in db
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateWall([FromBody] WallForUpdateDto updatedWall) 
+        {
+            // retrieve wall from the db
+            var wall = await _repo.GetWallByIdAsync(updatedWall.Id);
+
+            // map changes to wall
+            _mapper.Map(updatedWall, wall);
+
+            // if a change was made to db
+            if (await _repo.UpdateWall(wall))
+            {
+                return NoContent();
+            }
+
+            return BadRequest("Failed to update wall");
+        }
     }
 }

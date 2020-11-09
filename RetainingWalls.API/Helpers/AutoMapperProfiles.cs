@@ -10,6 +10,8 @@ namespace RetainingWalls.API.Helpers
         {
             CreateMap<RetainingWall, WallForAddDto>();
             CreateMap<WallForAddDto, RetainingWall>();
+            CreateMap<WallForUpdateDto, RetainingWall>();
+            CreateMap<RetainingWall, WallForUpdateDto>();
         }
     }
 }

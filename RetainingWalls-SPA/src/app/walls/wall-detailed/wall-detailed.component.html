@@ -1,4 +1,47 @@
 <p>
-  {{wall.latitude}}
-  {{wall.longitude}}
+  Latitude: {{wall.latitude}}
+  Longitude: {{wall.longitude}}
+  Location : {{wall.location}}
+  Minimum Height: {{wall.minHeight}}
+  Maximum Height: {{wall.maxHeight}}
+  Length: {{wall.length}}
 </p>
+
+<div class="col-4">
+  <form #wallUpdate="ngForm" (ngSubmit)="sendWallUpdate(); wallUpdate.reset()">
+    <h2 class="text-center text-primary">Update Retaining Wall information:</h2>
+    <p>Fill out the form below with the specified changes to the wall. Make sure to fill out every field!</p>
+    <hr>
+  
+    <div class="form-group">
+      <input type="number" class="form-control" required name='latitude' [(ngModel)]="wall.latitude" min="-90" max="90" placeholder="Latitude">
+    </div>
+  
+    <div class="form-group">
+      <input type="number" class="form-control" required name='longitude' [(ngModel)]="wall.longitude" min="-180" max="180" placeholder="Longitude">
+    </div>
+  
+    <div class="form-group">
+      <input type="text" class="form-control" required name='location' [(ngModel)]="wall.location" placeholder="Location">
+    </div>
+  
+    <div class="form-group">
+      <input type="number" class="form-control" required name='maxHeight' [(ngModel)]="wall.maxHeight" placeholder="Maximum Height">
+    </div>
+  
+    <div class="form-group">
+      <input type="number" class="form-control" required name='minHeight' [(ngModel)]="wall.minHeight" placeholder="Minimum Height">
+    </div>
+  
+    <div class="form-group">
+      <input type="number" class="form-control" required name='length' [(ngModel)]="wall.length" placeholder="Length">
+    </div>
+  
+    <div class="form-group text-center">
+      <button class="btn btn-success" type="submit">Update</button>
+      <button class="btn btn-default" type="button">Cancel</button>
+    </div>
+  
+  
+  </form>
+  </div>
