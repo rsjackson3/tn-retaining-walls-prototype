@@ -79,6 +79,21 @@ namespace RetainingWalls.API.Controllers
         [HttpPut("update")]
         public async Task<IActionResult> UpdateWall([FromBody] WallForUpdateDto updatedWall) 
         {
+
+            try
+            {
+                if (updatedWall == null)
+                {
+                    return BadRequest("Wall object is null");
+                }
+
+                if (!ModelState.IsValid) // check to see if request was bound correctly
+                {
+                    //_logger.LogError("Invalid retaining wall object sent from client request.");
+                    return BadRequest("Invalid retaining wall object.");
+                }
+            
+
             // retrieve wall from the db
             var wall = await _repo.GetWallByIdAsync(updatedWall.Id);
 
@@ -92,6 +107,13 @@ namespace RetainingWalls.API.Controllers
             }
 
             return BadRequest("Failed to update wall");
+
+            }
+
+            catch (Exception ex)
+            {
+                return StatusCode(500, "Internal server error" + ": " + ex.Message);
+            }
         }
     }
 }

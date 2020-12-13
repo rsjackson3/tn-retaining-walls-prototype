@@ -1,3 +1,4 @@
+
 namespace RetainingWalls.API.Models
 {
     public class RetainingWall
